@@ -1,9 +1,12 @@
 [package]
-name = "ip_noticer"
-version = "0.1.0"
 authors = ["n0pj <admin@n0pj.com>"]
 edition = "2018"
+name = "ip_noticer"
+version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+[workspace]
+members = []
