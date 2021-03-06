@@ -2,21 +2,20 @@
 
 Google Cloud DNS に IP を自動通知するための Rust アプリ
 
-docker build -t ip_noticer .
-docker run -d ip_noticer
+```shell
+docker exec -it ip_noticer bash
+```
 
-gcloud dns record-sets transaction start --zone="nserver"
+docker container (ip_noticer) 内
 
-gcloud dns record-sets transaction add 10.2.3.4 \
- --name="home.n0pj.com" \
- --ttl="30" \
- --type="A" \
- --zone="nserver"
+```shell
+gcloud auth login
+```
 
-gcloud dns record-sets transaction remove 10.2.3.4 \
- --name="home.n0pj.com" \
- --ttl="30" \
- --type="A" \
- --zone="nserver"
+画面に沿って GCP のアカウントを選択
+verification code を入力する
+以下でプロジェクトを選択する
 
-gcloud dns record-sets transaction execute --zone="nserver"
+```shell
+gcloud config set project PROJECT_ID
+```
