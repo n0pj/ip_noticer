@@ -1,4 +1,4 @@
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
- * */1 * * * cd / && /ip_noticer -c generate-only && sh /gcloud_dns_transaction_commands.sh > /var/tmp/cron_log 2>&1
+ 0 * * * * cd / && /ip_noticer -c generate-only && sh /gcloud_dns_transaction_commands.sh > /var/tmp/cron_log 2>&1
