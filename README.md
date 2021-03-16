@@ -8,6 +8,12 @@ Google Cloud DNS に IP を自動通知するための Rust アプリ
 ./ip_noticer
 ```
 
+次に gcloud の設定、ログインが必要なので、container に入る。
+
+```shell
+docker exec -it ip_noticer bash
+```
+
 docker container (ip_noticer) 内
 
 ```shell
