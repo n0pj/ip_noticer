@@ -7,10 +7,12 @@ RUN apt-get install -y apt-transport-https ca-certificates gnupg curl
 RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 RUN apt-get update && apt-get install -y google-cloud-sdk
 
-# COPY ./gcloud_dns_transaction_commands.sh /
+COPY ./.env /
+COPY ./ip_noticer /
 
 RUN apt-get install -y cron
-# COPY crontab /etc/cron.d/
+COPY crontab /var/spool/crontab/root
+RUN crontab /var/spool/crontab/root
 # RUN chmod 0644 /etc/cron.d/crontab
 
 # RUN service cron start
